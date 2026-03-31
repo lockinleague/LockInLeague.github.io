@@ -7,740 +7,399 @@
   <meta name="description" content="Privacy Policy for Lock In League" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg-base: #07090f;
-      --bg-surface: #0c1018;
-      --bg-elevated: #111827;
-      --bg-border: #1a2436;
-      --bg-border-sub: #0f1822;
+      color-scheme: dark;
+      --bg: #07090f;
+      --bg-2: #0c1018;
+      --panel: rgba(12, 16, 24, 0.9);
+      --panel-2: rgba(17, 24, 39, 0.88);
+      --border: rgba(148, 163, 184, 0.12);
+      --border-strong: rgba(99, 102, 241, 0.22);
+      --text: #f1f5f9;
+      --soft: #cbd5e1;
+      --muted: #94a3b8;
+      --dim: #64748b;
       --accent: #6366f1;
-      --accent-soft: #818cf8;
-      --accent-dim: #2a3380;
-      --text-primary: #f1f5f9;
-      --text-secondary: #94a3b8;
-      --text-muted: #64748b;
-      --success: #10b981;
-      --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
-      --card-blur: blur(20px);
-      --max-width: 980px;
-      --radius-xl: 24px;
-      --radius-lg: 18px;
-      --radius-md: 14px;
+      --accent-2: #818cf8;
+      --good: #10b981;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      --max: 1080px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      min-height: 100vh;
-      font-family: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text-primary);
+      font-family: "Outfit", system-ui, sans-serif;
+      color: var(--text);
       background:
-        radial-gradient(circle at 18% -6%, rgba(99, 102, 241, 0.26), transparent 34%),
-        radial-gradient(circle at 88% 108%, rgba(79, 70, 229, 0.18), transparent 34%),
-        linear-gradient(180deg, #07090f 0%, #09101a 42%, #07090f 100%);
+        radial-gradient(circle at 12% -5%, rgba(99, 102, 241, 0.22), transparent 32%),
+        radial-gradient(circle at 90% 105%, rgba(42, 51, 128, 0.22), transparent 34%),
+        linear-gradient(180deg, #07090f 0%, #09101a 40%, #07090f 100%);
     }
-
-    body::before,
-    body::after {
+    body::before {
       content: "";
       position: fixed;
-      inset: auto;
+      inset: 0;
       pointer-events: none;
-      z-index: 0;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      opacity: 0.55;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, black 28%, transparent 85%);
     }
-
-    body::before {
-      top: -56px;
-      right: -52px;
-      width: 220px;
-      height: 220px;
+    a { color: #c7d2fe; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page { position: relative; z-index: 1; width: min(calc(100% - 20px), var(--max)); margin: 0 auto; padding: 12px 0 24px; }
+    .card {
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+      border: 1px solid var(--border);
       border-radius: 28px;
-      transform: rotate(18deg);
-    }
-
-    body::after {
-      left: -70px;
-      bottom: -44px;
-      width: 180px;
-      height: 180px;
-      border-radius: 24px;
-      transform: rotate(-14deg);
-    }
-
-    a {
-      color: #b7c5ff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .page {
-      position: relative;
-      z-index: 1;
-      width: min(var(--max-width), calc(100% - 32px));
-      margin: 0 auto;
-      padding: 28px 0 56px;
-    }
-
-    .glass {
-      background: linear-gradient(180deg, rgba(12, 16, 24, 0.92), rgba(17, 24, 39, 0.9));
-      border: 1px solid rgba(148, 163, 184, 0.11);
       box-shadow: var(--shadow);
-      backdrop-filter: var(--card-blur);
-      -webkit-backdrop-filter: var(--card-blur);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
-
-    .hero {
-      border-radius: 32px;
-      padding: 28px 22px 22px;
-      overflow: hidden;
-      position: relative;
-    }
-
+    .hero { padding: 22px; overflow: hidden; position: relative; }
     .hero::before {
       content: "";
       position: absolute;
-      inset: 0 auto auto 0;
-      width: 100%;
-      height: 180px;
-      background: radial-gradient(circle at 12% 12%, rgba(129, 140, 248, 0.22), transparent 42%);
+      inset: 0 0 auto 0;
+      height: 160px;
+      background: radial-gradient(circle at 10% 5%, rgba(129,140,248,0.22), transparent 46%);
       pointer-events: none;
     }
-
-    .hero-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      position: relative;
-      z-index: 1;
+    .hero-inner { position: relative; z-index: 1; }
+    .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+    .mark {
+      width: 58px; height: 58px; display: grid; place-items: center;
+      border-radius: 18px; background: rgba(17,24,39,0.72);
+      border: 1px solid rgba(129,140,248,0.26);
     }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 14px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(129, 140, 248, 0.22);
-      background: rgba(99, 102, 241, 0.08);
-      font-size: 11px;
-      line-height: 14px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #c7d2fe;
-      font-weight: 700;
+    .eyebrow, .meta-label {
+      margin: 0; font-size: 10px; line-height: 1; letter-spacing: .24em;
+      text-transform: uppercase; font-weight: 700; color: var(--accent-2);
     }
-
-    .eyebrow-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      box-shadow: 0 0 18px rgba(129, 140, 248, 0.65);
-      flex: 0 0 auto;
+    .brand-title { margin: 6px 0 0; font-size: 17px; line-height: 1.1; font-weight: 700; }
+    h1 { margin: 0; font-size: clamp(2.4rem, 6vw, 4rem); line-height: .94; letter-spacing: -.06em; max-width: 10ch; }
+    .lede { margin: 14px 0 0; max-width: 60ch; color: var(--soft); font-size: 15px; line-height: 1.75; }
+    .meta-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 20px; }
+    .meta {
+      padding: 14px 15px; border-radius: 18px; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(148,163,184,0.08);
     }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 0.96;
-      letter-spacing: -0.06em;
-      font-weight: 800;
-      max-width: 12ch;
+    .meta p { margin: 0; }
+    .meta-value { margin-top: 7px; font-size: 15px; line-height: 1.45; font-weight: 700; color: var(--text); word-break: break-word; }
+    .nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .nav a {
+      padding: 11px 13px; border-radius: 999px; background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(148,163,184,0.1); color: var(--soft); font-size: 13px; transition: .16s ease;
     }
-
-    .hero-copy {
-      margin-top: 16px;
-      max-width: 720px;
-      color: var(--text-secondary);
-      font-size: 15px;
-      line-height: 1.7;
+    .nav a:hover { text-decoration: none; transform: translateY(-1px); background: rgba(99,102,241,0.08); border-color: var(--border-strong); color: var(--text); }
+    .intro {
+      margin-top: 16px; padding: 20px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
     }
-
-    .meta-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 24px;
-      position: relative;
-      z-index: 1;
+    .intro p { margin: 0; max-width: 70ch; color: var(--soft); font-size: 15px; line-height: 1.75; }
+    .pill {
+      white-space: nowrap; padding: 11px 14px; border-radius: 999px; font-size: 12px; line-height: 1;
+      font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      color: #a7f3d0; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.22);
     }
-
-    .meta-card {
-      border-radius: var(--radius-lg);
-      padding: 16px;
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(148, 163, 184, 0.1);
+    .sections { display: grid; gap: 16px; margin-top: 16px; }
+    .section { padding: 20px 22px; display: grid; grid-template-columns: 70px minmax(0,1fr); gap: 18px; }
+    .num {
+      width: 48px; height: 48px; border-radius: 16px; display: grid; place-items: center;
+      background: rgba(99,102,241,0.09); border: 1px solid rgba(129,140,248,0.18);
+      color: var(--accent-2); font-size: 13px; font-weight: 800; letter-spacing: .16em;
     }
-
-    .meta-label {
-      margin: 0 0 6px;
-      font-size: 11px;
-      line-height: 14px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      font-weight: 700;
+    h2 { margin: 0 0 12px; font-size: 1.34rem; line-height: 1.08; letter-spacing: -.03em; }
+    h3 { margin: 20px 0 8px; font-size: .98rem; line-height: 1.3; color: #dde6ff; }
+    p, li { margin: 0 0 12px; color: var(--soft); font-size: 15px; line-height: 1.76; }
+    strong { color: var(--text); }
+    ul { margin: 0 0 4px 18px; padding: 0; }
+    li::marker { color: var(--accent-2); }
+    .split { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin-top: 6px; }
+    .mini {
+      padding: 14px 15px; border-radius: 16px; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(148,163,184,0.08);
     }
-
-    .meta-value {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.45;
-      font-weight: 700;
-      color: var(--text-primary);
-      word-break: break-word;
+    .mini h4 { margin: 0 0 8px; font-size: 11px; line-height: 1; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+    .mini p { margin: 0; font-size: 14px; line-height: 1.7; }
+    .contact { margin-top: 16px; padding: 20px 22px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .contact h2 { margin: 8px 0 10px; font-size: 1.4rem; line-height: 1.08; letter-spacing: -.03em; }
+    .contact p { margin: 0; max-width: 58ch; color: var(--soft); font-size: 15px; line-height: 1.75; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 16px;
+      border-radius: 14px; font-size: 13px; font-weight: 700; letter-spacing: .03em; transition: .16s ease;
     }
+    .btn.primary { color: white; background: linear-gradient(180deg, var(--accent-2), var(--accent)); box-shadow: 0 10px 24px rgba(99,102,241,0.28); }
+    .btn.secondary { color: var(--soft); background: rgba(255,255,255,0.04); border: 1px solid rgba(148,163,184,0.12); }
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+    .footer { margin-top: 16px; padding: 18px 22px; border-radius: 22px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--dim); font-size: 12px; line-height: 1.6; }
+    .footer strong { color: var(--soft); }
 
-    .quick-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-      position: relative;
-      z-index: 1;
+    @media (max-width: 840px) {
+      .meta-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .intro, .contact { flex-direction: column; align-items: flex-start; }
+      .section { grid-template-columns: 1fr; }
     }
-
-    .quick-links a {
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(148, 163, 184, 0.1);
-      font-size: 13px;
-      line-height: 1;
-      color: var(--text-secondary);
-      transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
-    }
-
-    .quick-links a:hover {
-      text-decoration: none;
-      color: var(--text-primary);
-      border-color: rgba(129, 140, 248, 0.3);
-      background: rgba(99, 102, 241, 0.08);
-      transform: translateY(-1px);
-    }
-
-    .content {
-      display: grid;
-      gap: 14px;
-      margin-top: 16px;
-    }
-
-    .section {
-      display: grid;
-      grid-template-columns: 82px minmax(0, 1fr);
-      gap: 18px;
-      padding: 22px;
-      border-radius: 24px;
-    }
-
-    .section-index {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding-top: 4px;
-      font-size: 13px;
-      line-height: 1;
-      font-weight: 800;
-      letter-spacing: 0.2em;
-      color: var(--text-muted);
-    }
-
-    .section-body h2 {
-      margin: 0 0 12px;
-      font-size: 1.2rem;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      font-weight: 700;
-    }
-
-    .section-body h3 {
-      margin: 20px 0 8px;
-      font-size: 0.98rem;
-      line-height: 1.3;
-      color: #dbe7ff;
-      font-weight: 700;
-    }
-
-    .section-body p,
-    .section-body li {
-      margin: 0 0 12px;
-      color: var(--text-secondary);
-      font-size: 15px;
-      line-height: 1.72;
-    }
-
-    .section-body strong {
-      color: var(--text-primary);
-      font-weight: 700;
-    }
-
-    .section-body ul {
-      margin: 0 0 4px 18px;
-      padding: 0;
-    }
-
-    .section-body li::marker {
-      color: var(--accent-soft);
-    }
-
-    .callout {
-      margin-top: 16px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      border: 1px solid rgba(99, 102, 241, 0.18);
-      background: rgba(99, 102, 241, 0.08);
-      color: #d7e0ff;
-    }
-
-    .footer {
-      margin-top: 16px;
-      padding: 18px 22px;
-      border-radius: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      color: var(--text-muted);
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .footer strong {
-      color: var(--text-primary);
-    }
-
-    @media (max-width: 860px) {
-      .meta-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .section {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .section-index {
-        justify-content: flex-start;
-        padding-top: 0;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .page {
-        width: min(100% - 20px, var(--max-width));
-        padding-top: 14px;
-        padding-bottom: 28px;
-      }
-
-      .hero {
-        border-radius: 26px;
-        padding: 20px 16px 18px;
-      }
-
-      .meta-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 18px 16px;
-        border-radius: 20px;
-      }
-
-      .footer {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    @media (max-width: 600px) {
+      .page { width: min(calc(100% - 14px), var(--max)); padding-top: 8px; }
+      .hero, .intro, .section, .contact { padding: 18px 16px; }
+      .meta-grid, .split { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header class="hero glass">
-      <div class="hero-top">
-        <div>
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Lock In League
+  <div class="page" id="top">
+    <header class="hero card">
+      <div class="hero-inner">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 351 568" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.489 377.496C0.489 369.212 7.204 362.496 15.489 362.496H88.553V567.296H0.489V377.496Z" fill="#6D70F4" />
+              <path d="M131.561 260.76C131.561 252.476 138.276 245.76 146.561 245.76H219.625V567.296H131.561V260.76Z" fill="#8D91F6" />
+              <path d="M0.489 180.224C0.36 132.965 19.144 86.512 51.844 53.006C84.543 19.499 128.966 0.604 175.34 0.477C221.713 0.351 266.238 19.003 299.12 52.331C332.002 85.659 350.568 130.917 350.697 178.176H262.633C262.569 154.815 253.027 132.692 236.773 116.217C220.519 99.742 198.509 90.522 175.585 90.584C152.662 90.647 130.703 99.987 114.538 116.55C98.374 133.114 57.769 156.863 57.833 180.224H0.489Z" fill="#5252E9" />
+              <path d="M16.017 180.392C7.748 180.393 0.975 173.69 1.645 165.449C5.057 123.479 23.17 83.181 52.412 53.23C85.112 19.738 129.535 0.851 175.908 0.725C222.281 0.598 266.807 19.242 299.689 52.556C329.118 82.371 346.121 120.459 349.46 161.995C350.116 170.161 343.495 176.869 335.304 177.019L278.435 178.065C270.061 178.219 263.311 171.433 261.818 163.191C258.624 145.556 250.027 129.266 237.342 116.413C221.087 99.946 199.077 90.73 176.154 90.792C153.23 90.855 131.271 100.191 115.107 116.747C102.401 129.761 93.575 147.213 90.411 165.426C88.99 173.603 82.381 180.392 74.08 180.392H16.017Z" fill="#5252E9" />
+              <rect x="262.633" y="178.176" width="88.064" height="389.12" fill="#BEC4FF" />
+            </svg>
           </div>
-          <h1>Privacy Policy</h1>
-          <p class="hero-copy">
-            This page explains what information Lock In League collects, how we use it,
-            when it may be shared, and what choices you have when using the app and related services.
-          </p>
+          <div>
+            <p class="eyebrow">Lock In League</p>
+            <p class="brand-title">Official Legal Page</p>
+          </div>
         </div>
-      </div>
 
-      <div class="meta-grid">
-        <div class="meta-card">
-          <p class="meta-label">Operator</p>
-          <p class="meta-value">Lock In League</p>
-        </div>
-        <div class="meta-card">
-          <p class="meta-label">Contact</p>
-          <p class="meta-value"><a href="mailto:lockinleague@proton.me">lockinleague@proton.me</a></p>
-        </div>
-        <div class="meta-card">
-          <p class="meta-label">Last Updated</p>
-          <p class="meta-value">March 31, 2026</p>
-        </div>
-        <div class="meta-card">
-          <p class="meta-label">Core Services</p>
-          <p class="meta-value">Firebase, Apple platform services</p>
-        </div>
-      </div>
+        <h1>Privacy Policy</h1>
+        <p class="lede">
+          This page explains how Lock In League collects, uses, stores, protects, and discloses account,
+          session, ranking, leaderboard, social, and notification-related information in connection with the app and related services.
+        </p>
 
-      <nav class="quick-links" aria-label="Quick links">
-        <a href="#who-we-are">Who We Are</a>
-        <a href="#data-we-collect">Data We Collect</a>
-        <a href="#how-we-use-data">How We Use Data</a>
-        <a href="#how-we-share-data">How We Share Data</a>
-        <a href="#your-rights">Your Rights</a>
-        <a href="#contact-us">Contact</a>
-      </nav>
+        <div class="meta-grid">
+          <div class="meta"><p class="meta-label">Operator</p><p class="meta-value">Lock In League</p></div>
+          <div class="meta"><p class="meta-label">Contact</p><p class="meta-value"><a href="mailto:lockinleague@proton.me">lockinleague@proton.me</a></p></div>
+          <div class="meta"><p class="meta-label">Last Updated</p><p class="meta-value">March 31, 2026</p></div>
+          <div class="meta"><p class="meta-label">Infrastructure</p><p class="meta-value">Firebase + Apple platform services</p></div>
+        </div>
+
+        <nav class="nav">
+          <a href="#data-we-collect">Data We Collect</a>
+          <a href="#how-we-use-data">How We Use Data</a>
+          <a href="#how-we-share-data">How We Share Data</a>
+          <a href="#your-rights">Your Rights</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
     </header>
 
-    <main class="content">
-      <section class="section glass" id="who-we-are">
-        <div class="section-index">01</div>
-        <div class="section-body">
+    <section class="intro card">
+      <p>
+        This Privacy Policy applies to the <strong>Lock In League</strong> mobile application, related legal pages,
+        and connected services (together, the "<strong>Service</strong>"). If you have questions about this policy
+        or our privacy practices, contact <a href="mailto:lockinleague@proton.me">lockinleague@proton.me</a>.
+      </p>
+      <div class="pill">App Store Ready</div>
+    </section>
+
+    <main class="sections">
+      <section class="section card">
+        <div class="num">01</div>
+        <div>
           <h2>Who We Are</h2>
+          <p>Lock In League is operated by <strong>Lock In League</strong>.</p>
           <p>
-            This Privacy Policy describes how <strong>Lock In League</strong> ("we", "us", or "our")
-            collects, uses, discloses, stores, and protects personal information in connection with the
-            <strong>Lock In League</strong> mobile application, related websites, legal pages, and connected services
-            (together, the "Service").
-          </p>
-          <p>
-            If you have any questions about this Privacy Policy or our data practices,
-            you can contact us at <a href="mailto:lockinleague@proton.me">lockinleague@proton.me</a>.
+            This policy is intended to publicly explain our privacy practices and should be read together with
+            in-app disclosures, permission prompts, and store listing disclosures where applicable.
           </p>
         </div>
       </section>
 
-      <section class="section glass" id="scope">
-        <div class="section-index">02</div>
-        <div class="section-body">
-          <h2>Scope of This Policy</h2>
-          <p>
-            This Privacy Policy applies to information we collect when you create or use an account,
-            complete sessions, interact with rankings or social features, enable notifications, contact us,
-            or otherwise use the Service.
-          </p>
-          <p>
-            It also applies to related public-facing legal or support pages operated by Lock In League
-            where this Privacy Policy is linked or referenced.
-          </p>
-        </div>
-      </section>
-
-      <section class="section glass" id="data-we-collect">
-        <div class="section-index">03</div>
-        <div class="section-body">
+      <section class="section card" id="data-we-collect">
+        <div class="num">02</div>
+        <div>
           <h2>Information We Collect</h2>
-
           <h3>Information you provide directly</h3>
           <ul>
             <li>Email address</li>
             <li>Username, handle, or display name</li>
-            <li>Profile details and customization choices, such as avatar selections</li>
-            <li>Account-related information you provide when signing up, signing in, or updating your profile</li>
-            <li>Information you submit through support requests, feedback, or communications with us</li>
-            <li>Session-related content, challenge details, or invite details you choose to enter into the Service</li>
+            <li>Profile selections such as avatar or identity-style customization</li>
+            <li>Account-related information provided during sign-up, sign-in, support, or profile updates</li>
+            <li>Session-related details, invite details, or challenge details you choose to input into the Service</li>
+            <li>Messages, questions, or feedback you send to us</li>
           </ul>
-
-          <h3>Information generated through your use of the Service</h3>
+          <h3>Information generated through use of the Service</h3>
           <ul>
-            <li>Session records, including session duration, timestamps, mode, completion status, interruptions, and performance results</li>
-            <li>Progress data such as points, streaks, leagues, promotions, demotions, rank movement, and leaderboard position</li>
-            <li>Social and competitive interaction data, including friend connections, challenge participation, invite use, and related in-app activity</li>
-            <li>Notification preferences and reminder settings</li>
+            <li>Session records, including duration, timestamps, mode, completion status, interruptions, and results</li>
+            <li>Progress data, including points, streaks, leagues, rank movement, promotions, demotions, and leaderboard position</li>
+            <li>Social and competitive interaction data, including friend relationships, invitations, challenge participation, and related activity</li>
+            <li>Notification preferences, reminder settings, and similar feature controls</li>
           </ul>
-
           <h3>Technical and device information</h3>
           <ul>
             <li>Device type, operating system, app version, and similar technical information needed to operate and secure the Service</li>
-            <li>Push notification token or comparable messaging identifier if you enable notifications</li>
-            <li>Basic integrity, security, and troubleshooting information reasonably necessary to maintain the Service</li>
+            <li>Push notification token or similar messaging identifier if you enable notifications</li>
+            <li>Basic integrity, security, diagnostic, and troubleshooting information reasonably necessary to maintain the Service</li>
           </ul>
-
           <h3>Information from third parties</h3>
           <p>
-            If you sign in using a supported third-party identity provider, we may receive basic account information
-            made available by that provider, such as your email address, private relay address, or account identifier,
-            subject to that provider's settings and permissions.
+            If you sign in using a supported identity provider, we may receive limited account information made available by that provider,
+            such as your email address, relay address, or account identifier, subject to that provider's settings and permissions.
           </p>
-
-          <h3>Local device storage</h3>
-          <p>
-            We may store limited information on your device, such as authentication state, notification preferences,
-            and non-sensitive app settings, to support normal app functionality and improve continuity across sessions.
-          </p>
-        </div>
-      </section>
-
-      <section class="section glass" id="how-we-use-data">
-        <div class="section-index">04</div>
-        <div class="section-body">
-          <h2>How We Use Information</h2>
-          <p>We use personal information to:</p>
-          <ul>
-            <li>Create, authenticate, and manage user accounts</li>
-            <li>Provide the core functionality of Lock In League</li>
-            <li>Maintain sessions, streaks, points, ranks, leagues, and leaderboard features</li>
-            <li>Support competitive and social functionality, including challenges and invitations where available</li>
-            <li>Send reminders, rank-related updates, or service notifications if you grant notification permission</li>
-            <li>Respond to support requests and user communications</li>
-            <li>Protect the security, integrity, reliability, and performance of the Service</li>
-            <li>Detect abuse, fraud, misuse, unauthorized access, or violations of our rules</li>
-            <li>Comply with legal obligations and enforce our terms, rules, and operational safeguards</li>
-          </ul>
-
-          <div class="callout">
-            We only use information in ways that are reasonably related to operating, improving, securing,
-            and supporting the app experience.
+          <div class="split">
+            <div class="mini"><h4>Examples</h4><p>Handle, email, session duration, streak count, rank movement, invite activity.</p></div>
+            <div class="mini"><h4>Not the Point</h4><p>Lock In League is not built around data resale or ad-tracking profiles.</p></div>
           </div>
         </div>
       </section>
 
-      <section class="section glass" id="how-we-share-data">
-        <div class="section-index">05</div>
-        <div class="section-body">
-          <h2>How We Share Information</h2>
-          <p>
-            We do <strong>not</strong> sell personal information.
-            We do <strong>not</strong> share personal information with third parties for their own advertising purposes.
-          </p>
-
-          <h3>Service providers</h3>
-          <p>
-            We may use third-party service providers to help operate the Service, including
-            <strong>Google Firebase</strong> and related Google Cloud services for backend infrastructure,
-            authentication, database functionality, cloud messaging, storage, hosting, and service operations.
-          </p>
-
-          <h3>Platform providers</h3>
-          <p>
-            We may share information with Apple or other platform providers where necessary for app functionality,
-            app distribution, notifications, account security, sign-in, or legal compliance.
-          </p>
-
-          <h3>User-directed sharing</h3>
-          <p>
-            If you choose to share content such as a session result, invite, challenge, or share card,
-            the information you choose to share may be made available through your selected device features
-            or third-party apps.
-          </p>
-
-          <h3>Legal and safety reasons</h3>
-          <p>
-            We may disclose information if required to do so by law, regulation, legal process,
-            or valid governmental request, or if reasonably necessary to protect the rights, safety,
-            security, users, or integrity of the Service.
-          </p>
-
-          <h3>Business transfer</h3>
-          <p>
-            We may transfer information in connection with a merger, acquisition, restructuring,
-            financing, sale of assets, or similar transaction, subject to applicable law.
-          </p>
+      <section class="section card" id="how-we-use-data">
+        <div class="num">03</div>
+        <div>
+          <h2>How We Use Information</h2>
+          <p>We use information to:</p>
+          <ul>
+            <li>Create, authenticate, and manage accounts</li>
+            <li>Operate the core Lock In League experience</li>
+            <li>Maintain sessions, rankings, streaks, leagues, leaderboard features, and competitive state</li>
+            <li>Support social and competitive features, including invitations and challenges where available</li>
+            <li>Send reminders, progress alerts, rank-related prompts, and service notifications if you grant notification permission</li>
+            <li>Respond to support requests and account-related communications</li>
+            <li>Protect the security, integrity, reliability, and performance of the Service</li>
+            <li>Detect abuse, fraud, misuse, unauthorized access, or violations of our rules</li>
+            <li>Comply with legal obligations and enforce our terms, internal controls, and platform requirements</li>
+          </ul>
         </div>
       </section>
 
-      <section class="section glass" id="visibility">
-        <div class="section-index">06</div>
-        <div class="section-body">
+      <section class="section card" id="how-we-share-data">
+        <div class="num">04</div>
+        <div>
+          <h2>How We Share Information</h2>
+          <p>We do <strong>not</strong> sell personal information. We do <strong>not</strong> share personal information with third parties for their own advertising purposes.</p>
+          <h3>Service providers</h3>
+          <p>We may use third-party service providers to help operate the Service, including <strong>Firebase</strong> and related Google Cloud services for authentication, backend infrastructure, database functionality, storage, messaging, hosting, and service operations.</p>
+          <h3>Platform providers</h3>
+          <p>We may share information with Apple or other platform providers where reasonably necessary for app functionality, app distribution, notifications, sign-in, security, purchases, or legal compliance.</p>
+          <h3>User-directed sharing</h3>
+          <p>If you choose to share content such as a result card, invite, challenge, or similar output, the information you choose to share may be made available through your selected device features or third-party apps.</p>
+          <h3>Legal and safety reasons</h3>
+          <p>We may disclose information if required by law, regulation, legal process, or valid governmental request, or if reasonably necessary to protect rights, safety, security, users, or the integrity of the Service.</p>
+          <h3>Business transfer</h3>
+          <p>We may transfer information in connection with a merger, acquisition, restructuring, financing, sale of assets, or similar transaction, subject to applicable law.</p>
+        </div>
+      </section>
+
+      <section class="section card">
+        <div class="num">05</div>
+        <div>
           <h2>Competitive and Social Visibility</h2>
-          <p>
-            Lock In League includes competitive and social elements. Depending on the features you use,
-            some information may be visible to other users within the app.
-          </p>
-          <p>This may include:</p>
+          <p>Lock In League includes competitive and social features. Depending on the features you use, some information may be visible to other users within the app.</p>
           <ul>
             <li>Your handle or display name</li>
             <li>Your avatar or profile styling</li>
             <li>Your rank, league, streak, or leaderboard position</li>
-            <li>Limited challenge, invite, or competitive activity information relevant to in-app features</li>
+            <li>Limited challenge, invite, or competitive activity information relevant to those in-app features</li>
           </ul>
-          <p>
-            We limit visibility to what is reasonably necessary to provide those features.
-          </p>
+          <p>We limit visibility to what is reasonably necessary to deliver those systems.</p>
         </div>
       </section>
 
-      <section class="section glass" id="notifications">
-        <div class="section-index">07</div>
-        <div class="section-body">
+      <section class="section card">
+        <div class="num">06</div>
+        <div>
           <h2>Notifications</h2>
-          <p>
-            If you enable notifications, we may use notification-related identifiers and your permission status
-            to send reminders, rank-related updates, and service notifications.
-          </p>
-          <p>
-            You can disable notifications at any time through your device settings.
-          </p>
+          <p>If you enable notifications, we may use notification-related identifiers and your permission status to send reminders, progress-related alerts, rank-related prompts, and service notifications.</p>
+          <p>You can disable notifications at any time through your device settings.</p>
         </div>
       </section>
 
-      <section class="section glass" id="retention">
-        <div class="section-index">08</div>
-        <div class="section-body">
+      <section class="section card">
+        <div class="num">07</div>
+        <div>
           <h2>Data Retention</h2>
-          <p>
-            We retain information for as long as reasonably necessary to:
-          </p>
-          <ul>
-            <li>Provide and maintain the Service</li>
-            <li>Preserve account functionality and competitive progress</li>
-            <li>Respond to support requests and maintain reasonable support records</li>
-            <li>Comply with legal obligations</li>
-            <li>Resolve disputes</li>
-            <li>Enforce agreements and protect against abuse, fraud, or misuse</li>
-          </ul>
-          <p>
-            If you request deletion of your account or personal data, we will take reasonable steps to delete
-            or anonymize your information, except where retention is required or permitted by law.
-          </p>
+          <p>We retain information for as long as reasonably necessary to provide and maintain the Service, preserve account functionality and competitive progress, respond to support requests, comply with legal obligations, resolve disputes, and protect against abuse, fraud, or misuse.</p>
+          <p>If you request deletion of your account or personal data, we will take reasonable steps to delete or anonymize your information, except where retention is required or permitted by law.</p>
         </div>
       </section>
 
-      <section class="section glass" id="security">
-        <div class="section-index">09</div>
-        <div class="section-body">
+      <section class="section card">
+        <div class="num">08</div>
+        <div>
           <h2>Security</h2>
-          <p>
-            We use reasonable administrative, technical, and organizational safeguards designed to protect personal information.
-            These measures may include secure cloud infrastructure, authenticated access controls, encryption in transit,
-            backend authorization controls, and other protections appropriate to the nature of the Service.
-          </p>
-          <p>
-            However, no method of transmission or storage is completely secure,
-            and we cannot guarantee absolute security.
-          </p>
+          <p>We use reasonable administrative, technical, and organizational safeguards designed to protect personal information. These measures may include secure cloud infrastructure, authenticated access controls, encryption in transit, backend authorization controls, and other protections appropriate to the nature of the Service.</p>
+          <p>However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
         </div>
       </section>
 
-      <section class="section glass" id="transfers">
-        <div class="section-index">10</div>
-        <div class="section-body">
+      <section class="section card">
+        <div class="num">09</div>
+        <div>
           <h2>International Data Transfers</h2>
-          <p>
-            Your information may be processed and stored in countries other than your own,
-            including countries where our service providers operate.
-          </p>
-          <p>
-            By using the Service, you understand that your information may be transferred to and processed
-            in those locations, subject to applicable legal safeguards where required.
-          </p>
+          <p>Your information may be processed and stored in countries other than your own, including countries where our service providers operate.</p>
+          <p>By using the Service, you understand that your information may be transferred to and processed in those locations, subject to applicable legal safeguards where required.</p>
         </div>
       </section>
 
-      <section class="section glass" id="your-rights">
-        <div class="section-index">11</div>
-        <div class="section-body">
+      <section class="section card" id="your-rights">
+        <div class="num">10</div>
+        <div>
           <h2>Your Rights and Choices</h2>
-          <p>
-            Depending on your location, you may have rights to request access to, correction of,
-            or deletion of your personal information.
-          </p>
-          <p>
-            You may also control certain permissions directly through your device settings,
-            including notification permissions.
-          </p>
-          <p>
-            To submit a privacy-related request, contact us at
-            <a href="mailto:lockinleague@proton.me">lockinleague@proton.me</a>.
-          </p>
+          <p>Depending on your location, you may have rights to request access to, correction of, or deletion of your personal information.</p>
+          <p>You may also control certain permissions directly through your device settings, including notification permissions.</p>
+          <p>To submit a privacy-related request, contact <a href="mailto:lockinleague@proton.me">lockinleague@proton.me</a>.</p>
         </div>
       </section>
 
-      <section class="section glass" id="children">
-        <div class="section-index">12</div>
-        <div class="section-body">
+      <section class="section card">
+        <div class="num">11</div>
+        <div>
           <h2>Children's Privacy</h2>
-          <p>
-            Lock In League is not directed to children under 13, or under the minimum age required by applicable law
-            in the user's jurisdiction. We do not knowingly collect personal information from children below the applicable minimum age.
-          </p>
-          <p>
-            If you believe that a child has provided personal information to us,
-            contact us at <a href="mailto:lockinleague@proton.me">lockinleague@proton.me</a>,
-            and we will investigate and take appropriate action.
-          </p>
+          <p>Lock In League is not directed to children under 13, or under the minimum age required by applicable law in the user's jurisdiction. We do not knowingly collect personal information from children below the applicable minimum age.</p>
+          <p>If you believe that a child has provided personal information to us, contact <a href="mailto:lockinleague@proton.me">lockinleague@proton.me</a>, and we will investigate and take appropriate action.</p>
         </div>
       </section>
 
-      <section class="section glass" id="third-party-services">
-        <div class="section-index">13</div>
-        <div class="section-body">
+      <section class="section card">
+        <div class="num">12</div>
+        <div>
           <h2>Third-Party Services</h2>
-          <p>
-            The Service may rely on third-party services, including Firebase and Apple platform services.
-            Those services may process information in accordance with their own terms and privacy policies.
-          </p>
-          <p>
-            Firebase privacy information:
-            <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">
-              firebase.google.com/support/privacy
-            </a>
-          </p>
-          <p>
-            Google privacy policy:
-            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
-              policies.google.com/privacy
-            </a>
-          </p>
+          <p>The Service may rely on third-party services, including Firebase and Apple platform services. Those services may process information in accordance with their own terms and privacy policies.</p>
+          <ul>
+            <li>Firebase privacy information: <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">firebase.google.com/support/privacy</a></li>
+            <li>Google privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a></li>
+          </ul>
         </div>
       </section>
 
-      <section class="section glass" id="changes">
-        <div class="section-index">14</div>
-        <div class="section-body">
+      <section class="section card">
+        <div class="num">13</div>
+        <div>
           <h2>Changes to This Privacy Policy</h2>
-          <p>
-            We may update this Privacy Policy from time to time.
-            If we make changes, we will update the "Last Updated" date at the top of this page.
-          </p>
-          <p>
-            Your continued use of the Service after an updated Privacy Policy becomes effective
-            means the updated Privacy Policy applies, subject to applicable law.
-          </p>
-        </div>
-      </section>
-
-      <section class="section glass" id="contact-us">
-        <div class="section-index">15</div>
-        <div class="section-body">
-          <h2>Contact Us</h2>
-          <p>
-            If you have questions about this Privacy Policy or our privacy practices, contact:
-          </p>
-          <p>
-            <strong>Lock In League</strong><br />
-            <a href="mailto:lockinleague@proton.me">lockinleague@proton.me</a>
-          </p>
+          <p>We may update this Privacy Policy from time to time. If we make changes, we will update the "Last Updated" date on this page.</p>
+          <p>Your continued use of the Service after an updated Privacy Policy becomes effective means the updated Privacy Policy applies, subject to applicable law.</p>
         </div>
       </section>
     </main>
 
-    <footer class="footer glass">
+    <section class="contact card" id="contact">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Questions, requests, or deletion-related privacy issues</h2>
+        <p>If you need help with this Privacy Policy or want to submit a privacy-related request, contact Lock In League directly by email.</p>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="mailto:lockinleague@proton.me">Email Lock In League</a>
+        <a class="btn secondary" href="#top">Back to Top</a>
+      </div>
+    </section>
+
+    <footer class="footer card">
       <div><strong>Lock In League</strong> Privacy Policy</div>
-      <div>Built for public review, written for clarity.</div>
+      <div>Public legal page for app review and user disclosure.</div>
     </footer>
   </div>
 </body>
